@@ -2,6 +2,23 @@
 
 > TypeError: Cannot destructure property 'inputs' of '(intermediate value)' as it is undefined.
 
+## Solution
+
+Update `netlify.toml` with:
+
+```ini
+[functions]
+  directory = "functions"
+```
+
+or remove the trailing slash
+
+```diff
+  [dev]
+-   functions = "functions/"
++   functions = "functions"
+```
+
 ## Steps to Repro
 
 1. Run `netlify dev`
